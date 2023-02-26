@@ -227,3 +227,7 @@ SELECT name, MAX(fertility_rate) FROM countries;
 SELECT name, MIN(fertility_rate) FROM countries;
 SELECT name, MAX(population_change) FROM countries;
 SELECT name, MIN(population_change) FROM countries;
+
+SELECT name, population FROM countries GROUP BY population HAVING population > 1000000;
+
+SELECT name, population, percent_of_world_pop FROM countries GROUP BY percent_of_world_pop HAVING percent_of_world_pop > 5.
