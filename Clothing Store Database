@@ -1,6 +1,6 @@
 --Create a store database
 
-CREATE TABLE store (id INTEGER PRIMARY KEY, name TEXT, price INTEGER, quantity INTEGER, sold INTEGER);
+CREATE TABLE store (id INTEGER PRIMARY KEY, name TEXT, price INTEGER, initial_quantity INTEGER, total_sold INTEGER);
 
 INSERT INTO store VALUES (1, "shirts", 10, 9, 5);
 INSERT INTO store VALUES (2, "pants", 30, 8, 4);
