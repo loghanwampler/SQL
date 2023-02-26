@@ -230,4 +230,8 @@ SELECT name, MIN(population_change) FROM countries;
 
 SELECT name, population FROM countries GROUP BY population HAVING population > 1000000;
 
-SELECT name, population, percent_of_world_pop FROM countries GROUP BY percent_of_world_pop HAVING percent_of_world_pop > 5.
+SELECT name, population, percent_of_world_pop FROM countries GROUP BY percent_of_world_pop HAVING percent_of_world_pop > 5;
+
+SELECT * FROM countries WHERE population > 1000000 AND median_age > 30 GROUP BY median_age;
+
+SELECT * FROM countries WHERE population < 1000000 OR population_change < 150000 GROUP BY name;
