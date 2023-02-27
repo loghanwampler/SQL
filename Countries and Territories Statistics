@@ -1,3 +1,5 @@
+-- I used this data from the source below to find information and statistics about the countries and territories.
+
 /*
  Countries and dependent territories, 2020
  Data adapted from
@@ -219,23 +221,36 @@ INSERT INTO countries(name,population,percent_one_year_change,population_change,
 INSERT INTO countries(name,population,percent_one_year_change,population_change,density_per_sq_km,area_sq_km,net_migrants,fertility_rate,median_age,percent_of_world_pop) VALUES ('Seychelles',98347,0.62,608,214,460,-200,2.50,34.00,0);
 INSERT INTO countries(name,population,percent_one_year_change,population_change,density_per_sq_km,area_sq_km,net_migrants,fertility_rate,median_age,percent_of_world_pop) VALUES ('Antigua and Barbuda',97929,0.84,811,223,440,0,2.00,34.00,0);
 
+--Create a table from the above data.
 SELECT * FROM countries;
 
+--Find the average population of all the countries.
 SELECT AVG(population) FROM countries;
+
+--Find the average fertility rate of all the countries.
 SELECT AVG(fertility_rate) FROM countries;
+
+--Find the country with the highest and lowest fertility rates, and find the maximum and minimum fertility rates.
 SELECT name, MAX(fertility_rate) FROM countries;
 SELECT name, MIN(fertility_rate) FROM countries;
+
+--Find the country with the highest and lowest population changes, and find the maximum and minimum population changes.
 SELECT name, MAX(population_change) FROM countries;
 SELECT name, MIN(population_change) FROM countries;
 
+--Find the names and populations of countries that have a population of over one million.
 SELECT name, population FROM countries GROUP BY population HAVING population > 1000000;
 
+--Find the names and populations of countries where their percentage of the world population is over 5%.
 SELECT name, population, percent_of_world_pop FROM countries GROUP BY percent_of_world_pop HAVING percent_of_world_pop > 5;
 
+--Which countries have a population of over one million and a median age that is over 30 years old?
 SELECT * FROM countries WHERE population > 1000000 AND median_age > 30 GROUP BY median_age;
 
+--Which countries have a population of less than one million or a population change that is less than 150000?
 SELECT * FROM countries WHERE population < 1000000 OR population_change < 150000 GROUP BY name;
 
+--Create a table that shows the countries, their populations, and whether the populations are above average, average, or below average.
 SELECT name, population,
 CASE
 WHEN population > 38774455 THEN "above average"
