@@ -238,9 +238,8 @@ SELECT * FROM countries WHERE population < 1000000 OR population_change < 150000
 
 SELECT name, population,
 CASE
-WHEN population > 1000000000 THEN "very large population"
-WHEN population > 100000000 THEN "large population"
-WHEN population > 1000000 THEN "mid-sized population"
-ELSE "small population"
-END as "population size"
+WHEN population > 38774455 THEN "above average"
+WHEN population = 38774455 THEN "average"
+ELSE "below average"
+END as "population compared to average"
 FROM countries;
