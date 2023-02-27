@@ -235,3 +235,12 @@ SELECT name, population, percent_of_world_pop FROM countries GROUP BY percent_of
 SELECT * FROM countries WHERE population > 1000000 AND median_age > 30 GROUP BY median_age;
 
 SELECT * FROM countries WHERE population < 1000000 OR population_change < 150000 GROUP BY name;
+
+SELECT name, population,
+CASE
+WHEN population > 1000000000 THEN "very large population"
+WHEN population > 100000000 THEN "large population"
+WHEN population > 1000000 THEN "mid-sized population"
+ELSE "small population"
+END as "population size"
+FROM countries;
