@@ -1,0 +1,10 @@
+CREATE TABLE famous_people (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, age INTEGER);
+
+INSERT INTO famous_people (name, age) VALUES ("Harry Styles", 29);
+INSERT INTO famous_people (name, age) VALUES ("Andrew Linoln", 49);
+INSERT INTO famous_people (name, age) VALUES ("SZA", 33);
+INSERT INTO famous_people (name, age) VALUES ("Taylor Swift", 33);
+INSERT INTO famous_people (name, age) VALUES ("Kristen Bell", 42);
+INSERT INTO famous_people (name, age) VALUES ("Dax Shepherd", 48);
+INSERT INTO famous_people (name, age) VALUES ("Mila Kunis", 39);
+INSERT INTO famous_people (name, age) VALUES ("Ashton Kutcher", 45);
