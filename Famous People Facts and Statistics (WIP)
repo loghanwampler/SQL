@@ -30,3 +30,8 @@ INSERT INTO homes (name, birth_place, residence_place, person_id) VALUES ("Krist
 INSERT INTO homes (name, birth_place, residence_place, person_id) VALUES ("Dax Shepherd", "Michigan, USA", "California, USA", 6);
 INSERT INTO homes (name, birth_place, residence_place, person_id) VALUES ("Mila Kunis", "Chernivsti, Ukrainian SSR", "California, USA", 7);
 INSERT INTO homes (name, birth_place, residence_place, person_id) VALUES ("Ashton Kutcher", "Iowa, USA", "California, USA", 8);
+
+SELECT famous_people.name, famous_people.age, jobs.job
+FROM famous_people
+JOIN jobs
+ON famous_people.id = jobs.person_id;
