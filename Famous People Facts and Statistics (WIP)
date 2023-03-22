@@ -40,6 +40,13 @@ FROM famous_people
 JOIN jobs
 ON famous_people.id = jobs.person_id;
 
+--Join tables to show the famous person's name, age, and birth place.
+
+SELECT famous_people.name, famous_people.age, homes.birth_place
+FROM famous_people
+JOIN homes
+ON famous_people.id = homes.person_id;
+
 --Create a table that shows the famous person's name, job, birth place, and residence place.
 
 SELECT famous_people.name, jobs.job, homes.birth_place, homes.residence_place
