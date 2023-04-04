@@ -1,3 +1,5 @@
+--In this SQL, I'm querying a database with multiple tables in it to quantify statistics about customer and order data.
+
 --Show the 'customers' table and fix any messy or incorrect data.
 SELECT * FROM BIT_DB0.customers
 WHERE length(order_id) = 6
@@ -26,3 +28,26 @@ SELECT Product, MIN(price) FROM JanSales
 WHERE orderID <> ''
 AND orderID <> 'Order ID'
 ORDER BY price ASC LIMIT 1;
+
+--What is the total revenue for each product sold in January?
+SELECT product, sum(quantity)*price as revenue
+FROM JanSales
+WHERE orderID <> ''
+AND orderID <> 'Order ID'
+GROUP BY product;
+
+--Which products were sold in February at 548 Lincoln St, Seattle, WA 98101, how many of each were sold, and what was the total revenue?
+SELECT product, SUM(quantity), SUM(quantity)*price AS revenue
+FROM FebSales
+WHERE orderID <> ''
+AND orderID <> 'Order ID'
+AND location = '548 Lincoln St, Seattle, WA 98101';
+
+--How many customers ordered more than 2 products at a time in February, and what was the average amount spent for those customers?
+SELECT count(distinct customers.acctnum), AVG(quantity*price) 
+FROM FebSales
+JOIN customers
+ON FebSales.orderID = customers.order_id
+WHERE orderID <> ''
+AND orderID <> 'Order ID'
+AND quantity > 2;
