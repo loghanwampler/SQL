@@ -1,0 +1,17 @@
+--Show the 'customers' table and fix any messy or incorrect data.
+SELECT * FROM BIT_DB0.customers
+WHERE length(order_id) = 6
+AND order_id <> 'Order ID';
+
+--How many orders were placed in January?
+SELECT count(*) FROM JanSales
+WHERE orderID <> ''
+AND orderID <> 'Order ID';
+
+--How many of those orders were for an iPhone?
+SELECT count(*) FROM JanSales
+WHERE orderID <> ''
+AND orderID <> 'Order ID'
+AND Product = 'iPhone';
+
+--Select the customer account numbers for all the orders that were placed in February.
