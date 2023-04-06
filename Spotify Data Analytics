@@ -4,7 +4,7 @@
 
 --Creating the table: 
 
-CREATE TABLE BIT_DB.Spotifydata (
+CREATE TABLE BIT_DB0.Spotifydata (
 id integer PRIMARY KEY,
 artist_name varchar NOT NULL,
 track_name varchar NOT NULL,
