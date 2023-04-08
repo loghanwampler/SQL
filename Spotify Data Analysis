@@ -59,7 +59,7 @@ FROM Spotifydata
 ORDER BY energy asc
 LIMIT 1;
 
---Which songs have a tempo that above avaerage for this list?
+--Which songs have a tempo that above average for this list?
 SELECT track_name, tempo
 FROM Spotifydata
 WHERE tempo > (SELECT AVG(tempo) FROM Spotifydata)
