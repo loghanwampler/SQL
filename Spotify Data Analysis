@@ -25,7 +25,7 @@ duration_ms integer NOT NULL,
 time_signature integer NOT NULL 
 )
 
---Then I inserted the Spotify Data .csv into the table.
+--Then, I inserted the Spotify Data .csv into the table.
 
 --Next, I explored the data and answered some questions using the following SQL. 
 
@@ -52,3 +52,15 @@ LIMIT 10;
 SELECT AVG(danceability)
 FROM Spotifydata
 WHERE popularity >= 92;
+
+--Which song has the lowest energy level?
+SELECT track_name, energy
+FROM Spotifydata
+ORDER BY energy asc
+LIMIT 1;
+
+--Which songs have a tempo that above avaerage for this list?
+SELECT track_name, tempo
+FROM Spotifydata
+WHERE tempo > (SELECT AVG(tempo) FROM Spotifydata)
+ORDER BY tempo desc;
