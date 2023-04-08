@@ -28,3 +28,10 @@ time_signature integer NOT NULL
 --Then I inserted the Spotify Data .csv into the table.
 
 --Next, I explored the data and answered some questions using the following SQL. 
+
+--Who are the top 10 artists based on popularity?
+SELECT artist_name, AVG(popularity)
+FROM Spotifydata
+GROUP BY artist_name
+ORDER BY AVG(popularity) desc
+LIMIT 10;
