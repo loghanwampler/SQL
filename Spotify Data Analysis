@@ -64,3 +64,10 @@ SELECT track_name, tempo
 FROM Spotifydata
 WHERE tempo > (SELECT AVG(tempo) FROM Spotifydata)
 ORDER BY tempo desc;
+
+--Who are the top 3 artists based on how many songs they have on this 'Top 50' list?
+SELECT artist_name, count(*) AS song_quantity
+FROM Spotifydata
+GROUP BY artist_name
+ORDER BY song_quantity desc
+LIMIT 3;
