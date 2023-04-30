@@ -2,7 +2,15 @@
 
 
 --Show Customers (their full names, customer ID, and country) who are not in the US. 
+SELECT Customerid, FirstName, LastName, country
+FROM chinook0.customers
+WHERE country <> 'USA';
+
 --Show only the Customers from Brazil.
+SELECT FirstName, LastName, country
+FROM chinook0.customers
+WHERE country = 'Brazil';
+
 --Find the Invoices of customers who are from Brazil. The resulting table should show the customer's full name, Invoice ID, Date of the invoice, and billing country.
 --Show the Employees who are Sales Agents.
 --Find a unique/distinct list of billing countries from the Invoice table.
