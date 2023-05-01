@@ -66,6 +66,11 @@ AND albums.ArtistId = artists.ArtistId
 ORDER BY InvoiceLineId ASC;
 
 --Provide a query that shows all the Tracks, and include the Album name, Media type, and Genre.
+SELECT tracks.Name AS "Track", albums.Title AS "Album", genres.Name AS "Genre", media_types.Name AS "Media Type"
+FROM chinook0.tracks, chinook0.albums, chinook0.genres, chinook0.media_types
+WHERE tracks.MediaTypeId = media_types.MediaTypeId
+AND tracks.albumID = albums.AlbumId
+AND genres.GenreId = tracks.GenreId;
 
 --Show the total sales made by each sales agent.
 
