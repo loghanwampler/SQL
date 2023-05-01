@@ -10,6 +10,11 @@ SELECT FirstName, LastName, country
 FROM chinook0.customers
 WHERE country = 'Brazil';
 
+--How many invoices have Germany as the billing country?
+SELECT COUNT(InvoiceId)
+FROM chinook0.invoices
+WHERE BillingCountry = 'Germany';
+
 --Find the Invoices of customers who are from Brazil. The resulting table should show the customer's full name, Invoice ID, Date of the invoice, and billing country.
 SELECT FirstName, LastName, InvoiceId, InvoiceDate, BillingCountry
 FROM chinook0.customers
