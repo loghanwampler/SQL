@@ -51,6 +51,11 @@ FROM chinook0.invoices
 WHERE InvoiceDate LIKE '%2009%';
 
 --Write a query that includes the purchased track name with each invoice line ID.
+SELECT tracks.Name AS "Track Name", invoice_items.InvoiceLineId
+FROM chinook0.tracks
+JOIN chinook0.invoice_items
+ON tracks.TrackId = invoice_items.TrackId
+ORDER BY InvoiceLineId ASC;
 
 --Write a query that includes the purchased track name AND artist name with each invoice line ID.
 
