@@ -73,6 +73,18 @@ AND tracks.albumID = albums.AlbumId
 AND genres.GenreId = tracks.GenreId;
 
 --Show the total sales made by each sales agent.
+SELECT employees.FirstName || " " || employees.LastName AS "Sales Agent", SUM(invoices.Total) AS "Total Sales"
+FROM chinook0.employees, chinook0.invoices, chinook0.customers
+WHERE employees.EmployeeId = customers.SupportRepId
+AND invoices.CustomerId = customers.CustomerId
+GROUP BY employees.FirstName || " " || employees.LastName;
 
 --Which sales agent made the most dollars in sales in 2009?
-
+SELECT employees.FirstName || " " || employees.LastName AS "Sales Agent", SUM(invoices.Total) AS "Total Sales"
+FROM chinook0.employees, chinook0.invoices, chinook0.customers
+WHERE employees.EmployeeId = customers.SupportRepId
+AND invoices.CustomerId = customers.CustomerId
+AND InvoiceDate LIKE '%2009%'
+GROUP BY employees.FirstName || " " || employees.LastName
+ORDER BY SUM(invoices.Total) DESC
+LIMIT 1;
