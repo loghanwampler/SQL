@@ -58,6 +58,12 @@ ON tracks.TrackId = invoice_items.TrackId
 ORDER BY InvoiceLineId ASC;
 
 --Write a query that includes the purchased track name AND artist name with each invoice line ID.
+SELECT tracks.Name AS "Track", artists.Name AS "Artist", invoice_items.InvoiceLineId
+FROM chinook0.tracks, chinook0.invoice_items, chinook0.artists, chinook0.albums
+WHERE tracks.TrackId = invoice_items.TrackId
+AND tracks.AlbumId = albums.AlbumId
+AND albums.ArtistId = artists.ArtistId
+ORDER BY InvoiceLineId ASC;
 
 --Provide a query that shows all the Tracks, and include the Album name, Media type, and Genre.
 
